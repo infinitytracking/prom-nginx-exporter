@@ -1,0 +1,7 @@
+[program:prom-nginx-exporter]
+autostart=true
+autorestart=true
+user=nobody
+command=/usr/sbin/prom-nginx-exporter -listen-address :8089
+stdout_logfile=syslog
+stderr_logfile=syslog
