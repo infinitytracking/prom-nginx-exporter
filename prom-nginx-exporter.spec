@@ -20,10 +20,11 @@ This package contains the prometheus nginx exporter.
 %setup -q
 
 %build
-#Create a src directory and move all project directories into it (excluding conf).
+#Create a src directory then move all project directories and go files into it (excluding conf).
 #Then set the current directory as GOPATH and enable vendoring experiment.
 mkdir -p %{PkgSrcPath}
 mv `find . -maxdepth 1 -type d ! -name src ! -name conf ! -name .` %{PkgSrcPath}
+mv `find . -maxdepth 1 -type f -name *.go` %{PkgSrcPath}
 export GOPATH=`pwd`
 
 #Use go install to build all project programs, but exclude the vendor directory.
